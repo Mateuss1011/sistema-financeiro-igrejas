@@ -1,0 +1,87 @@
+# =============================================================================
+# SFG — o que NUNCA entra no repositório. As pastas backend/ e frontend/ têm seus próprios .gitignore
+# (padrão do Laravel/Vite); as regras abaixo valem para o projeto inteiro e reforçam os pontos críticos.
+# =============================================================================
+
+# --- Segredos e configuração local (só o modelo .env.example é versionado)
+.env
+.env.*
+!.env.example
+auth.json
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# --- Dependências e artefatos de build (recriáveis)
+vendor/
+node_modules/
+dist/
+dist-ssr/
+backend/public/build/
+backend/public/hot
+backend/public/storage
+
+# --- Estado de execução do Laravel (o conteúdo é ignorado; os .gitignore de cada pasta mantêm as pastas)
+backend/storage/logs/*
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/storage/framework/testing/*
+backend/bootstrap/cache/*
+!backend/storage/**/.gitignore
+!backend/storage/framework/cache/data/
+!backend/bootstrap/cache/.gitignore
+*.log
+.phpunit.result.cache
+.phpunit.cache/
+
+# --- Dumps e backups de banco (dados reais nunca vão para o Git). Os scripts legítimos, como
+# docs/deploy/mariadb-privilegios.sql, continuam versionados.
+*.dump
+*.sql.gz
+*.sql.zip
+*.sql.bz2
+*.sql.7z
+sfg-*.sql
+backup*.sql
+*-backup.sql
+*.sqlite
+*.sqlite3
+
+# --- Arquivos temporários e resultados de ferramentas
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+coverage/
+.coverage
+*.lcov
+screenshots/
+*.screenshot.png
+
+# --- IDE / editor
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.fleet/
+.nova/
+.zed/
+.phpactor.json
+*.suo
+*.sln
+*.njsproj
+*.ntvs*
+
+# --- Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
