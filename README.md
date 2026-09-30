@@ -1,5 +1,12 @@
 # SFG — Sistema Financeiro para Igrejas
 
+![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?logo=laravel&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?logo=bootstrap&logoColor=white)
+![MariaDB](https://img.shields.io/badge/MariaDB-10.4-003545?logo=mariadb&logoColor=white)
+![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
+
 Sistema web de gestão financeira para **uma única igreja**: entradas (dízimos, ofertas, doações), despesas, várias contas
 bancárias e caixas físicos, transferências, ajustes de saldo, fechamento mensal, dashboard, relatórios com exportação
 CSV/Excel e trilha de auditoria completa. Não é multi-tenant.
@@ -10,6 +17,25 @@ CSV/Excel e trilha de auditoria completa. Não é multi-tenant.
 
 > Plano oficial de referência: [`docs/superpowers/specs/2026-09-17-sfg-plano-oficial-design.md`](docs/superpowers/specs/2026-09-17-sfg-plano-oficial-design.md).
 > Documentos técnicos por fase estão na mesma pasta.
+
+## Sumário
+
+- [Objetivo](#objetivo)
+- [Principais funcionalidades](#principais-funcionalidades)
+- [Perfis e o que cada um faz](#perfis-e-o-que-cada-um-faz-resumo)
+- [Relatórios e exportação](#relatórios-e-exportação)
+- [Segurança](#segurança)
+- [Auditoria](#auditoria)
+- [Estado do projeto](#estado-do-projeto)
+- [Estrutura](#estrutura)
+- [Requisitos](#requisitos)
+- [Instalação local](#instalação-local-do-zero)
+- [Testes, lint e build](#testes-lint-e-build)
+- [Demonstração](#demonstração)
+- [Documentação](#documentação)
+- [Fora do escopo do MVP](#fora-do-escopo-do-mvp)
+- [Licença](#licença)
+- [Autor](#autor)
 
 ## Objetivo
 
@@ -37,6 +63,9 @@ clientes**: o repositório é o código-fonte, a documentação e um ambiente de
 | Tesoureiro | rotina financeira completa; sem Auditoria e sem gestão de usuários |
 | Auxiliar financeiro | vê **somente o que criou**; Dashboard parcial; **não exporta**; sem saldos, transferências e ajustes |
 | Secretário | sem acesso aos módulos financeiros (só Categorias e Usuários, em leitura) |
+
+A matriz completa de permissões (com as exceções pontuais concedidas pelo Pastor) está no plano oficial, seção 4, e é imposta
+**no backend** por Policies; o frontend só esconde menus.
 
 ## Relatórios e exportação
 
@@ -125,11 +154,6 @@ docs/
 > `php artisan sfg:criar-pastor` só funciona com a tabela `users` vazia, nunca aceita a senha por argumento e audita a criação.
 > Depois disso, os demais usuários são criados pelo próprio sistema (tela **Usuários**).
 
-## Perfis
-
-Pastor · Administrador · Tesoureiro · Auxiliar financeiro · Secretário. A matriz de permissões (com as exceções pontuais
-concedidas pelo Pastor) está no plano oficial, seção 4, e é imposta **no backend** por Policies; o frontend só esconde menus.
-
 ## Testes, lint e build
 
 ```bash
@@ -179,3 +203,14 @@ existe em nenhum arquivo do projeto. Os comandos recusam rodar com `APP_ENV=prod
 
 Cadastro de membros, dízimos nominais, anexos, exportação PDF, gráficos, 2FA, folha de pagamento, patrimônio, integração
 bancária, notificações, app mobile, multi-tenant e aprovação em múltiplas etapas (plano oficial, seção 3).
+
+## Licença
+
+Distribuído sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## Autor
+
+**Mateus Silva Santos**
+
+- GitHub: [@Mateuss1011](https://github.com/Mateuss1011)
+- LinkedIn: [Mateus Silva Santos](https://www.linkedin.com/in/mateus-silva-santos-678082283)
